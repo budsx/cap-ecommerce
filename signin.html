@@ -11,35 +11,68 @@
 </head>
 
 <body>
-    <div class="navbar">
-        <div>
-            <h1>99 Coffe</h1>
-        </div>
-        <div>
-            <ul class="navbar-menu">
-                <li class="menu-list"><a href="#">Home</a></li>
-                <li class="menu-list"><a href="#">Product</a></li>
-                <li class="menu-list"><a href="#">Sign In</a></li>
-            </ul>
-        </div>
-    </div>
+    <nav class="navbar">
+        <!-- LOGO -->
+        <div class="logo">99COFFE</div>
+        <!-- NAVIGATION MENU -->
+        <ul class="nav-links">
+            <!-- USING CHECKBOX HACK -->
+            <input type="checkbox" id="checkbox_toggle" />
+            <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+            <!-- NAVIGATION MENUS -->
+            <div class="menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/">Product</a></li>
+                <li><a href="/">SignIn</a></li>
+            </div>
+        </ul>
+    </nav>
     <div class="register">
         <form class="register-form" action="#">
-            <div class="container">
-                <h1>Login</h1>
-                <div class="register-input">
-
-                    <label for="email"><b>Email</b></label>
-                    <input type="text" placeholder="Enter Email" name="email" id="email" required>
-
-                    <label for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
-                    <button type="submit" class="registerbtn">Login</button>
-
-                </div>
+            <h1>Login</h1>
+            <div class="register-input">
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" name="email" id="email" required>
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+                <button type="submit" class="registerbtn">Login</button>
             </div>
         </form>
     </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="row-1">
+                <div class="footer-content">
+                    <h4>Menu</h4>
+                    <ul>
+                        <li class="list-footer"><a href="#">Tentang Kami</a></li>
+                        <li class="list-footer"><a href="#">Clients</a></li>
+                        <li class="list-footer"><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-content">
+                    <h4>Layanan</h4>
+                    <ul>
+                        <li class="list-footer"><a href="#">Toko</a></li>
+                        <li class="list-footer"><a href="#">Layanan Kami</a></li>
+                    </ul>
+                </div>
+                <div class="footer-content">
+                    <h4>Kontak</h4>
+                    <p>Cilandak Timur, Jakarta Selatan, DKI Jakarta</p>
+                    <p>+62823 0130 2964</p>
+                    <p>Coffe99@gmail.com</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row-2">
+            <div class="copyright">
+                <p>© 2022 99COFFE. NO RIGHTS RESERVED</p>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
