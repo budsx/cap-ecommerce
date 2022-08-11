@@ -1,0 +1,9 @@
+.product-detail {
+  padding: 5rem;
+  display: flex;
+}
+
+.product-detail-desc {
+  background-color: rgb(190, 91, 91);
+  padding: 1rem;
+}
