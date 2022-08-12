@@ -1,9 +1,30 @@
 .product-detail {
-  padding: 5rem;
+  max-width: 1200px;
+
   display: flex;
+  justify-content: center;
+  /* margin: auto 0; */
+  margin: 2rem auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: gray 0px 0px 5px;
+  padding: 1rem;
 }
 
 .product-detail-desc {
-  background-color: rgb(190, 91, 91);
+  /* background-color: rgb(pru190, 91, 91); */
   padding: 1rem;
+}
+
+.related-product {
+  max-width: 1200px;
+  /* display: flex; */
+  margin: 0 auto;
+}
+
+.related-product h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
 }
