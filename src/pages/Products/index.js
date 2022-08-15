@@ -1,6 +1,6 @@
 import React from 'react';
 import CardProduct from '../../components/Card';
-import { images } from '../../components/assets';
+import { images } from '../../assets';
 
 const Products = () => {
   return (
