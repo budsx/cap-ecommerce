@@ -59,7 +59,7 @@ const Products = () => {
           <CardProduct
             image={images['organic-mexico.jpg']}
             title="Organic Mexico"
-            price="$19.99"
+            price="$29.99"
           />
         </div>
       </div>
