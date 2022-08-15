@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import CardProduct from '../../components/Card';
+import { images } from '../../assets';
 
 const ProductDetail = () => {
   return (
@@ -29,27 +30,38 @@ const ProductDetail = () => {
         <h2>Related Product</h2>
         <div className="product-items">
           <CardProduct
-            title="White Roasters Coffe - Regular Coffe"
+            image={images['brazil-dark-ground.jpg']}
+            title="Brazil Dark Ground"
             price="$19.99"
           />
+
           <CardProduct
-            title="White Roasters Coffe - Regular Coffe"
+            image={images['breakfast-medium-roast.jpg']}
+            title="Breakfast Medium Roast"
             price="$19.99"
           />
+
           <CardProduct
-            title="White Roasters Coffe - Regular Coffe"
+            image={images['costarica-light-roast.jpg']}
+            title="Costarica Light Roast"
             price="$19.99"
           />
+
           <CardProduct
-            title="White Roasters Coffe - Regular Coffe"
+            image={images['decaf-espresso.jpg']}
+            title="Decaf Espresso"
             price="$19.99"
           />
+
           <CardProduct
-            title="White Roasters Coffe - Regular Coffe"
+            image={images['espresso-roast-blend.jpg']}
+            title="Espresso Roast Blend"
             price="$19.99"
           />
+
           <CardProduct
-            title="White Roasters Coffe - Regular Coffe"
+            image={images['french-roast.jpg']}
+            title="French Roast"
             price="$19.99"
           />
         </div>
