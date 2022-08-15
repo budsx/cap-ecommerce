@@ -54,17 +54,12 @@ const Cart = () => {
           <div className="cart-total">
             <h4>$19.99</h4>
           </div>
-          {/* <div className="cart-subtotal">
-          <h3>Subtotal</h3>
-        </div>
-        <div className="cart-subtotal">
-          <h4>$19.99</h4>
-        </div> */}
-        </div>
-      </div>
-      <div className="cart-subtotal">
-        <div className="cart-header">
-          <h3>Total</h3>
+          <div className="cart-subtotal">
+            <h3>Subtotal</h3>
+          </div>
+          <div className="cart-subtotal">
+            <h4>$19.99</h4>
+          </div>
         </div>
       </div>
     </>
