@@ -14,9 +14,8 @@ const Login = () => {
         if (loading) {
             return;
         }
-        if (user) {
-            navigate('/products');
-        }
+
+        if (user) navigate('/products');
     }, [loading, user, navigate]);
 
     return (
@@ -54,6 +53,12 @@ const Login = () => {
                             className="registerbtn">
                             Login
                         </button>
+                        <div class="signin">
+                            <p>
+                                Create an account?{' '}
+                                <a href="/register">Register</a>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
