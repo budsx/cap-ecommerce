@@ -55,7 +55,7 @@ const Navbar = () => {
                         <li>
                             <Link to="/products">Products</Link>
                         </li>
-                        <li>
+                        {user ? (
                             <Link to="/cart">
                                 <img
                                     src="/assets/img/shop-cart.svg"
@@ -63,7 +63,10 @@ const Navbar = () => {
                                     width={'20px'}
                                 />
                             </Link>
-                        </li>
+                        ) : (
+                            ''
+                        )}
+
                         {user ? (
                             <li className="logout" onClick={logout}>
                                 Logout
