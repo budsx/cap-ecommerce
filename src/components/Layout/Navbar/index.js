@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Logo from './Logo';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { auth, db, logout } from '../../../config/firebase';
 import { query, collection, where, getDocs } from 'firebase/firestore';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -9,6 +9,7 @@ const Navbar = () => {
     // eslint-disable-next-line no-unused-vars
     const [name, setName] = useState('');
     const [user, loading] = useAuthState(auth);
+    // const navigate = useNavigate();
     // check if user is exist or not
     const isUserExist = async () => {
         try {
@@ -29,11 +30,11 @@ const Navbar = () => {
         if (loading) {
             return;
         }
-
+        // if (!user) return navigate('/login');
         if (user) {
             isUserExist();
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user, loading]);
 
     return (
@@ -53,6 +54,15 @@ const Navbar = () => {
                         </li>
                         <li>
                             <Link to="/products">Products</Link>
+                        </li>
+                        <li>
+                            <Link to="/cart">
+                                <img
+                                    src="/assets/img/shop-cart.svg"
+                                    alt="shop"
+                                    width={'20px'}
+                                />
+                            </Link>
                         </li>
                         {user ? (
                             <li className="logout" onClick={logout}>
