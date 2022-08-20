@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Logo from './Logo';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { auth, db, logout } from '../../../config/firebase';
 import { query, collection, where, getDocs } from 'firebase/firestore';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -9,15 +9,14 @@ const Navbar = () => {
     // eslint-disable-next-line no-unused-vars
     const [name, setName] = useState('');
     const [user, loading] = useAuthState(auth);
-    // const navigate = useNavigate();
     // check if user is exist or not
     const isUserExist = async () => {
         try {
-            const q = query(
+            const getUser = query(
                 collection(db, 'users'),
                 where('uid', '==', user?.uid)
             );
-            const doc = await getDocs(q);
+            const doc = await getDocs(getUser);
             const data = doc.docs[0].data();
             setName(data.name);
         } catch (error) {
@@ -30,7 +29,6 @@ const Navbar = () => {
         if (loading) {
             return;
         }
-        // if (!user) return navigate('/login');
         if (user) {
             isUserExist();
         }
