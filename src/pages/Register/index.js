@@ -24,52 +24,54 @@ const Register = () => {
     }, [loading, navigate, user]);
 
     return (
-        <div className="container">
-            <div class="register">
-                <div class="register-form">
-                    <h1>Register</h1>
-                    <div class="register-input">
-                        <label for="name">
-                            <b>Name</b>
-                        </label>
-                        <input
-                            type="text"
-                            placeholder="Enter Name"
-                            name="name"
-                            id="name"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                        />
-                        <label for="email">
-                            <b>Email</b>
-                        </label>
-                        <input
-                            type="text"
-                            placeholder="Enter Email"
-                            name="email"
-                            id="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                        <label for="psw">
-                            <b>Password</b>
-                        </label>
-                        <input
-                            type="password"
-                            placeholder="Enter Password"
-                            name="psw"
-                            id="psw"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-                        <button onClick={register} class="registerbtn">
-                            Register
-                        </button>
-                        <div class="signin">
-                            <p>
-                                Already have an account?{' '}
-                                <a href="login">Sign in</a>.
-                            </p>
+        <div className="my-32">
+            <div className="container">
+                <div className="register">
+                    <div className="register-form">
+                        <h1>Register</h1>
+                        <div className="register-input">
+                            <label htmlFor="name">
+                                <b>Name</b>
+                            </label>
+                            <input
+                                type="text"
+                                placeholder="Enter Name"
+                                name="name"
+                                id="name"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                            />
+                            <label htmlFor="email">
+                                <b>Email</b>
+                            </label>
+                            <input
+                                type="text"
+                                placeholder="Enter Email"
+                                name="email"
+                                id="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                            <label htmlFor="psw">
+                                <b>Password</b>
+                            </label>
+                            <input
+                                type="password"
+                                placeholder="Enter Password"
+                                name="psw"
+                                id="psw"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                            <button onClick={register} className="registerbtn">
+                                Register
+                            </button>
+                            <div className="signin">
+                                <p>
+                                    Already have an account?{' '}
+                                    <a href="login">Sign in</a>.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
