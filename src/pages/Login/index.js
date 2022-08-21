@@ -19,7 +19,7 @@ const Login = () => {
     }, [loading, user, navigate]);
 
     return (
-        <div>
+        <div className="my-32">
             <div className="register">
                 <div className="register-form">
                     <h1>Login</h1>
@@ -53,7 +53,7 @@ const Login = () => {
                             className="registerbtn">
                             Login
                         </button>
-                        <div class="signin">
+                        <div className="signin">
                             <p>
                                 Create an account?{' '}
                                 <a href="/register">Register</a>

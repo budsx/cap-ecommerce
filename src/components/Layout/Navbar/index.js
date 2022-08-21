@@ -5,7 +5,7 @@ import { auth, db, logout } from '../../../config/firebase';
 import { query, collection, where, getDocs } from 'firebase/firestore';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
-const Navbar = () => {
+const Nav = () => {
     // eslint-disable-next-line no-unused-vars
     const [name, setName] = useState('');
     const [user, loading] = useAuthState(auth);
@@ -81,4 +81,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
+export default Nav;
