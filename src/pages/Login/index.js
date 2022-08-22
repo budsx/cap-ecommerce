@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { auth, logInWithEmailAndPassword } from '../../config/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -15,7 +16,9 @@ const Login = () => {
             return;
         }
 
-        if (user) navigate('/products');
+        if (user) {
+            navigate('/products');
+        }
     }, [loading, user, navigate]);
 
     return (
@@ -47,12 +50,13 @@ const Login = () => {
                             onChange={(e) => setPassword(e.target.value)}
                         />
                         <button
-                            onClick={() =>
-                                logInWithEmailAndPassword(email, password)
-                            }
+                            onClick={() => {
+                                logInWithEmailAndPassword(email, password);
+                            }}
                             className="registerbtn">
                             Login
                         </button>
+                        <ToastContainer />
                         <div className="signin">
                             <p>
                                 Create an account?{' '}

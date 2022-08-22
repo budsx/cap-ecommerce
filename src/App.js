@@ -7,7 +7,7 @@ import ProductDetail from './pages/ProductDetail';
 import Products from './pages/Products';
 import Register from './pages/Register';
 
-function App() {
+function App() {  
   return (
     <BrowserRouter>
       <Routes>
