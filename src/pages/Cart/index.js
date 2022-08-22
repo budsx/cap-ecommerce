@@ -37,7 +37,7 @@ const Cart = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user, loading]);
     return (
-        <div className="my-32">
+        <div className="my-12">
             <div className="cart">
                 <div className="cart-header">
                     <h1>Order</h1>

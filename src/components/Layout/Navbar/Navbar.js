@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Logo from './Logo';
 import { Link } from 'react-router-dom';
 import { auth, db, logout } from '../../../config/firebase';
 import { query, collection, where, getDocs } from 'firebase/firestore';
@@ -37,7 +36,7 @@ const Navbar = () => {
     }, [user, loading]);
 
     return (
-        <div className="shadow-md w-full fixed top-0 left">
+        <div className="shadow-md w-full top-0 left">
             <div className="md:flex items-center justify-between bg-white py-4 md:px-10 px-7">
                 <Link to="/">
                     <div
@@ -58,8 +57,8 @@ const Navbar = () => {
                     <ion-icon name={open ? 'close' : 'menu-sharp'}></ion-icon>
                 </div>
                 <ul
-                    className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-white md:z-auto z-[-1] left-0
-                     w-full md:w-auto md:pl-0 pl-9 transition-all duration-75 ease-in ${
+                    className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-white md:z-auto z-9 left-0
+                     w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${
                          open ? 'top-20 ' : 'top-[-490px]'
                      }`}>
                     <li className="md:ml-8 text-lg md:my-0 my-7">

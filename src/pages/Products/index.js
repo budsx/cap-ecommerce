@@ -4,7 +4,7 @@ import { images } from '../../assets';
 
 const Products = () => {
     return (
-        <div className="my-20">
+        <div className="my-12">
             <div className="products">
                 <h1>Products</h1>
                 <div className="product-items">
