@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import { auth, registerWithEmailAndPassword } from '../../config/firebase';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
     const [name, setName] = useState('');
@@ -9,9 +11,13 @@ const Register = () => {
     const [password, setPassword] = useState('');
     const [user, loading] = useAuthState(auth);
     const navigate = useNavigate();
+    const notify = (msg) => toast.error(msg);
 
     const register = async () => {
-        if (!name) alert('Name is required');
+        if (!name) {
+            notify('Please enter your name');
+            return;
+        }
         registerWithEmailAndPassword(name, email, password);
     };
     useEffect(() => {
@@ -25,6 +31,7 @@ const Register = () => {
 
     return (
         <div className="my-32">
+            <ToastContainer />
             <div className="container">
                 <div className="register">
                     <div className="register-form">

@@ -7,6 +7,8 @@ import {
     signOut,
 } from 'firebase/auth';
 import { getFirestore, addDoc, collection } from 'firebase/firestore';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const firebaseConfig = {
     apiKey: 'AIzaSyCsQ0q2iAVeb1LdE2XeohFNsKNKousAqG8',
@@ -21,12 +23,14 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
+const notify = (msg) => toast.error(msg);
+
 const logInWithEmailAndPassword = async (email, password) => {
     try {
         await signInWithEmailAndPassword(auth, email, password);
     } catch (error) {
-        console.log(error);
-        alert(error.message);
+        console.log(error.message);
+        notify('Invalid email or password');
     }
 };
 
@@ -41,8 +45,7 @@ const registerWithEmailAndPassword = async (name, email, password) => {
             email,
         });
     } catch (error) {
-        console.log(error);
-        alert(error.message);
+        notify(error.message);
     }
 };
 
