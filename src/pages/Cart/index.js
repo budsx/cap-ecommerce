@@ -8,6 +8,7 @@ const Cart = () => {
     // eslint-disable-next-line no-unused-vars
     const [name, setName] = useState('');
     const [user, loading] = useAuthState(auth);
+    const [count, setCount] = useState(1);
     const navigate = useNavigate();
     // check if user is exist or not
     const isUserExist = async () => {
@@ -56,16 +57,33 @@ const Cart = () => {
                         <div className="cart-description">
                             <p>White Roasters Coffe - Regular Coffe</p>
                             <h4>$19.99</h4>
-                            {/* <input
-                                type="number"
-                                min="1"
-                                defaultValue={''}
-                                className="inputnumber"
-                            /> */}
-                            <input
-                                type="number"
-                                className="border-2 py-1 px-0"
-                            />
+
+                            <div className="flex flex-wrap">
+                                <div className="flex w-2/12">
+                                    <input
+                                        type="number"
+                                        readOnly={true}
+                                        value={count}
+                                        className="bg-white text-sm text-gray-900 text-center focus:outline-none border border-gray-800 focus:border-gray-600 rounded-l-md w-full"
+                                    />
+                                </div>
+                                <div className="flex flex-col w-1/12">
+                                    <button
+                                        className="text-white text-center text-md font-semibold rounded-tr-md px-1 bg-amber-800 focus:bg-gray-600 focus:outline-none border border-gray-800 focus:border-gray-600"
+                                        onClick={() => {
+                                            setCount(count + 1);
+                                        }}>
+                                        +
+                                    </button>
+                                    <button
+                                        className="text-white text-center text-md font-semibold rounded-br-md px-1 bg-amber-800 focus:bg-gray-600 focus:outline-none border border-gray-800 focus:border-gray-600"
+                                        onClick={() => {
+                                            setCount(count - 1);
+                                        }}>
+                                        -
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div className="cart-total">
@@ -82,13 +100,33 @@ const Cart = () => {
                         <div className="cart-description">
                             <p>White Roasters Coffe - Regular Coffe</p>
                             <h4>$19.99</h4>
-                            {/* <input
-                                type="number"
-                                min="1"
-                                defaultValue={''}
-                                className="inputnumber"
-                            /> */}
-                            <input type="number" className="border-2 p-1" />
+                            <div className="flex flex-wrap">
+                                <div className="flex w-2/12">
+                                    <input
+                                        type="number"
+                                        min={1}
+                                        onChange={true}
+                                        value={count}
+                                        className="bg-white text-sm text-gray-900 text-center focus:outline-none border border-gray-800 focus:border-gray-600 rounded-l-md w-full"
+                                    />
+                                </div>
+                                <div className="flex flex-col w-1/12">
+                                    <button
+                                        className="text-white text-center text-md font-semibold rounded-tr-md px-1 bg-amber-800 focus:bg-gray-600 focus:outline-none border border-gray-800 focus:border-gray-600"
+                                        onClick={() => {
+                                            setCount(count + 1);
+                                        }}>
+                                        +
+                                    </button>
+                                    <button
+                                        className="text-white text-center text-md font-semibold rounded-br-md px-1 bg-amber-800 focus:bg-gray-600 focus:outline-none border border-gray-800 focus:border-gray-600"
+                                        onClick={() => {
+                                            setCount(count - 1);
+                                        }}>
+                                        -
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div className="cart-total">
