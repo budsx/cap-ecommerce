@@ -23,7 +23,11 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-const notify = (msg) => toast.error(msg);
+const notify = (msg) =>
+    toast.error(msg, {
+        position: toast.POSITION.TOP_CENTER,
+        theme: 'colored',
+    });
 
 const logInWithEmailAndPassword = async (email, password) => {
     try {

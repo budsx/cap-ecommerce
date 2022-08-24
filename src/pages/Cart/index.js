@@ -56,11 +56,15 @@ const Cart = () => {
                         <div className="cart-description">
                             <p>White Roasters Coffe - Regular Coffe</p>
                             <h4>$19.99</h4>
-                            <input
+                            {/* <input
                                 type="number"
                                 min="1"
                                 defaultValue={''}
                                 className="inputnumber"
+                            /> */}
+                            <input
+                                type="number"
+                                className="border-2 py-1 px-0"
                             />
                         </div>
                     </div>
@@ -78,12 +82,13 @@ const Cart = () => {
                         <div className="cart-description">
                             <p>White Roasters Coffe - Regular Coffe</p>
                             <h4>$19.99</h4>
-                            <input
+                            {/* <input
                                 type="number"
                                 min="1"
                                 defaultValue={''}
                                 className="inputnumber"
-                            />
+                            /> */}
+                            <input type="number" className="border-2 p-1" />
                         </div>
                     </div>
                     <div className="cart-total">

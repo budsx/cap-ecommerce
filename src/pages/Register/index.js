@@ -11,11 +11,16 @@ const Register = () => {
     const [password, setPassword] = useState('');
     const [user, loading] = useAuthState(auth);
     const navigate = useNavigate();
-    const notify = (msg) => toast.error(msg);
+
+    const notify = (msg) =>
+        toast.error(msg, {
+            position: toast.POSITION.TOP_CENTER,
+            theme: 'colored',
+        });
 
     const register = async () => {
-        if (!name) {
-            notify('Please enter your name');
+        if (!name || !email || !password) {
+            notify('Please fill all fields');
             return;
         }
         registerWithEmailAndPassword(name, email, password);
