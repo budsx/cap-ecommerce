@@ -87,33 +87,15 @@ const ProductDetail = () => {
                                 onChange={(e) =>
                                     setOrder({ ...order, qty: e.target.value })
                                 }
-                                className="h-6 bg-white text-sm text-gray-900 text-center focus:outline-none border border-gray-800 focus:border-gray-600 rounded-l-md w-full"
+                                className="h-12 bg-white text-lg text-gray-900 text-center focus:outline-none border border-gray-800 focus:border-gray-600 rounded-md  w-full"
                             />
                         </div>
-                        {/* <div className="flex flex-col w-1/12">
-                            <button
-                                className="text-white text-center text-md font-semibold rounded-tr-md px-1 bg-amber-800 focus:bg-gray-600 focus:outline-none border border-gray-800 focus:border-gray-600"
-                                onClick={() => {
-                                    setCount(count + 1);
-                                }}>
-                                +
-                            </button>
-                            <button
-                                className="text-white text-center text-md font-semibold rounded-br-md px-1 bg-amber-800 focus:bg-gray-600 focus:outline-none border border-gray-800 focus:border-gray-600"
-                                onClick={() => {
-                                    setCount(count - 1);
-                                }}>
-                                -
-                            </button>
-                        </div> */}
                     </div>
                     <h4 className="product-price">
                         ${dataDetail?.price * count}
                     </h4>
                     <button className="btn-atc" onClick={handleATC}>
                         Add to cart
-                        {/* <Link to="/cart" onClick={handleATC}>
-                        </Link> */}
                     </button>
                 </div>
             </div>

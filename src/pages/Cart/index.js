@@ -61,34 +61,26 @@ const Cart = () => {
                             />
                             <div className="cart-description">
                                 <p>{product.name}</p>
-                                <h4>${product.price * product.qty}</h4>
-
+                                <h4>${product.price}</h4>
+                                <button
+                                    className=""
+                                    onClick={() => {
+                                        dispatch({
+                                            type: 'REMOVE_FROM_CART',
+                                            value: product,
+                                        });
+                                    }}>
+                                    Remove
+                                </button>
                                 <div className="flex flex-wrap">
                                     <div className="flex w-2/12">
                                         <input
                                             type="number"
-                                            // readOnly={true}
-                                            // value={count}
                                             defaultValue={product.qty}
-                                            className="bg-white text-sm text-gray-900 text-center focus:outline-none border border-gray-800 focus:border-gray-600 rounded-l-md w-full"
+                                            className="h-12 bg-white text-lg text-gray-900 text-center focus:outline-none border border-gray-800 focus:border-gray-600 rounded-md w-12"
                                         />
                                     </div>
-                                    <div className="flex flex-col w-1/12">
-                                        {/* <button
-                                            className="text-white text-center text-md font-semibold rounded-tr-md px-1 bg-amber-800 focus:bg-gray-600 focus:outline-none border border-gray-800 focus:border-gray-600"
-                                            onClick={() => {
-                                                setCount(count + 1);
-                                            }}>
-                                            +
-                                        </button>
-                                        <button
-                                            className="text-white text-center text-md font-semibold rounded-br-md px-1 bg-amber-800 focus:bg-gray-600 focus:outline-none border border-gray-800 focus:border-gray-600"
-                                            onClick={() => {
-                                                setCount(count - 1);
-                                            }}>
-                                            -
-                                        </button> */}
-                                    </div>
+                                    <div className="flex flex-col w-1/12"></div>
                                 </div>
                             </div>
                         </div>
