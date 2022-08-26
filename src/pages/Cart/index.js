@@ -76,6 +76,7 @@ const Cart = () => {
                                     <div className="flex w-2/12">
                                         <input
                                             type="number"
+                                            min="1"
                                             defaultValue={product.qty}
                                             className="h-12 bg-white text-lg text-gray-900 text-center focus:outline-none border border-gray-800 focus:border-gray-600 rounded-md w-12"
                                         />

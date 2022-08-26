@@ -2,8 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { images } from '../../assets';
 import { useProduct, useDetailProduct } from '../../hooks/useProduct';
-import { useSelector, useDispatch } from 'react-redux';
-import { addToCart } from '../../redux/product/action';
+import { useDispatch } from 'react-redux';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -17,12 +16,6 @@ const ProductDetail = () => {
     const [order, setOrder] = useState({
         qty: 0,
     });
-
-    const notify = (msg) =>
-        toast.info(msg, {
-            position: toast.POSITION.TOP_CENTER,
-            theme: 'colored',
-        });
 
     const dispatch = useDispatch();
 
@@ -43,14 +36,19 @@ const ProductDetail = () => {
         const { qty } = order;
         const dataOrder = { id, name, price, image, qty };
         if (qty === 0) {
-            alert('Please fill all field');
+            toast.error('Please fill all fields', {
+                position: toast.POSITION.TOP_CENTER,
+                theme: 'colored',
+            });
         } else {
             dispatch({
                 type: 'ADD_TO_CART',
                 value: dataOrder,
             });
-            // alert('Added to cart');
-            notify('Added To Cart');
+            toast.success('Added to Cart', {
+                position: toast.POSITION.TOP_CENTER,
+                theme: 'colored',
+            });
         }
     };
 
@@ -80,8 +78,6 @@ const ProductDetail = () => {
                         <div className="flex w-1/12">
                             <input
                                 type="number"
-                                // readOnly={true}
-                                // value={count}
                                 min="1"
                                 defaultValue={0}
                                 onChange={(e) =>
