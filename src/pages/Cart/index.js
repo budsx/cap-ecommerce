@@ -9,6 +9,10 @@ import { images } from '../../assets';
 const Cart = () => {
     const dispatch = useDispatch();
     const { data } = useSelector((state) => state.productOrder);
+    const subTotalPrice = data.reduce(
+        (acc, curr) => acc + curr.price * curr.qty,
+        0
+    );
     // eslint-disable-next-line no-unused-vars
     const [name, setName] = useState('');
     const [user, loading] = useAuthState(auth);
@@ -49,7 +53,7 @@ const Cart = () => {
                 </div>
                 <div className="cart-product-head">
                     <h3>Product</h3>
-                    <h3>Total</h3>
+                    <h3>SubTotal</h3>
                 </div>
                 {data.map((product, i) => (
                     <div className="cart-body" key={i}>
@@ -79,6 +83,13 @@ const Cart = () => {
                                             min="1"
                                             defaultValue={product.qty}
                                             className="h-12 bg-white text-lg text-gray-900 text-center focus:outline-none border border-gray-800 focus:border-gray-600 rounded-md w-12"
+                                            onChange={(e) =>
+                                                dispatch({
+                                                    type: 'CHANGE_QUANTITY',
+                                                    value: e.target.value,
+                                                    id: product.id,
+                                                })
+                                            }
                                         />
                                     </div>
                                     <div className="flex flex-col w-1/12"></div>
@@ -86,10 +97,14 @@ const Cart = () => {
                             </div>
                         </div>
                         <div className="cart-total">
-                            <h4>${product.price * count}</h4>
+                            <h4>${product.price * product.qty}</h4>
                         </div>
                     </div>
                 ))}
+                <div className=" my-6 p-6 flex justify-between items-center">
+                    <h3>Total</h3>
+                    <h4 className="font-bold text-xl">${subTotalPrice}</h4>
+                </div>
             </div>
         </div>
     );
