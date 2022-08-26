@@ -63,7 +63,7 @@ const Cart = () => {
                                 <p>{product.name}</p>
                                 <h4>${product.price}</h4>
                                 <button
-                                    className=""
+                                    className="btn-remove"
                                     onClick={() => {
                                         dispatch({
                                             type: 'REMOVE_FROM_CART',
