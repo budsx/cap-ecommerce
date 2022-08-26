@@ -2,12 +2,29 @@ import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { images } from '../../assets';
 import { useProduct, useDetailProduct } from '../../hooks/useProduct';
+import { useSelector, useDispatch } from 'react-redux';
+import { addToCart } from '../../redux/product/action';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ProductDetail = () => {
     const { id } = useParams();
     const [isLoading, dataDetail, getProductById] = useDetailProduct();
     const [count, setCount] = useState(1);
     const [, dataResult, getAllProduct] = useProduct();
+    console.log(dataDetail);
+    const [order, setOrder] = useState({
+        qty: 0,
+    });
+
+    const notify = (msg) =>
+        toast.info(msg, {
+            position: toast.POSITION.TOP_CENTER,
+            theme: 'colored',
+        });
+
+    const dispatch = useDispatch();
 
     const getDetail = async () => {
         await getProductById(id);
@@ -21,6 +38,22 @@ const ProductDetail = () => {
         relatedProduct();
     }, [id]);
 
+    const handleATC = () => {
+        const { id, name, price, image } = dataDetail;
+        const { qty } = order;
+        const dataOrder = { id, name, price, image, qty };
+        if (qty === 0) {
+            alert('Please fill all field');
+        } else {
+            dispatch({
+                type: 'ADD_TO_CART',
+                value: dataOrder,
+            });
+            // alert('Added to cart');
+            notify('Added To Cart');
+        }
+    };
+
     return isLoading ? (
         <div className="my-12">
             <div className="flex items-center justify-center space-x-2 animate-bounce">
@@ -31,6 +64,7 @@ const ProductDetail = () => {
         </div>
     ) : (
         <div className="my-12">
+            <ToastContainer />
             <div className="product-detail">
                 <div className="product-detail-img">
                     <img
@@ -46,19 +80,21 @@ const ProductDetail = () => {
                         <div className="flex w-1/12">
                             <input
                                 type="number"
-                                readOnly={true}
-                                value={count}
+                                // readOnly={true}
+                                // value={count}
                                 min="1"
-                                className="bg-white text-sm text-gray-900 text-center focus:outline-none border border-gray-800 focus:border-gray-600 rounded-l-md w-full"
+                                defaultValue={0}
+                                onChange={(e) =>
+                                    setOrder({ ...order, qty: e.target.value })
+                                }
+                                className="h-6 bg-white text-sm text-gray-900 text-center focus:outline-none border border-gray-800 focus:border-gray-600 rounded-l-md w-full"
                             />
                         </div>
-                        <div className="flex flex-col w-1/12">
+                        {/* <div className="flex flex-col w-1/12">
                             <button
                                 className="text-white text-center text-md font-semibold rounded-tr-md px-1 bg-amber-800 focus:bg-gray-600 focus:outline-none border border-gray-800 focus:border-gray-600"
                                 onClick={() => {
-                                    if (count <= 1) {
-                                        setCount(count + 1);
-                                    }
+                                    setCount(count + 1);
                                 }}>
                                 +
                             </button>
@@ -69,13 +105,15 @@ const ProductDetail = () => {
                                 }}>
                                 -
                             </button>
-                        </div>
+                        </div> */}
                     </div>
                     <h4 className="product-price">
                         ${dataDetail?.price * count}
                     </h4>
-                    <button className="btn-atc">
-                        <Link to="/cart">Add to cart</Link>
+                    <button className="btn-atc" onClick={handleATC}>
+                        Add to cart
+                        {/* <Link to="/cart" onClick={handleATC}>
+                        </Link> */}
                     </button>
                 </div>
             </div>
