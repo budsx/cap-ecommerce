@@ -383,6 +383,13 @@ footer {
     margin: 0 1rem;
 }
 
+.btn-remove {
+    background-color: rgb(158, 49, 49);
+    color: white;
+    padding: 0.25rem;
+    border-radius: 6px;
+}
+
 .inputnumber {
     width: 50px;
     padding: 0.5rem;
